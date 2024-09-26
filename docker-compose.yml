@@ -5,7 +5,7 @@ services:
     build:
       context: ./frontend
       dockerfile: dockerfile
-    image: "${{DOCKER_USERNAME}}/frontend-image:latest"
+    image: "${DOCKER_USERNAME}/frontend-image:latest"
     ports:
       - "3000:3000"
     depends_on:
@@ -15,6 +15,6 @@ services:
     build:
       context: ./backend
       dockerfile: dockerfile
-    image: "${{DOCKER_USERNAME}}/backend-image:latest"
+    image: "${DOCKER_USERNAME}/backend-image:latest"
     ports:
       - "5000:5000"
