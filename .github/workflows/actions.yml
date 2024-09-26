@@ -24,8 +24,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
-      - name: Build the Docker image
-        run: docker-compose -f docker-compose.yml build
-
-      - name: Push the Docker image
-        run: docker-compose -f docker-compose.yml push
+      - name: Build and Push the Docker image
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: |
+          docker-compose -f docker-compose.yml build
+          docker-compose -f docker-compose.yml push
