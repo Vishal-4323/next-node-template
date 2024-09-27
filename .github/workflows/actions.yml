@@ -25,7 +25,8 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Build and Push the Docker image
-        env:
+        env: |
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
           docker-compose -f docker-compose.yml build
